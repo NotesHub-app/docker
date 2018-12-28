@@ -10,17 +10,19 @@ services:
       - app_server
     ports:
       - 8080:80
+    restart: always
 
   mongo:
     image: mongo:4-xenial
-    restart: always
     volumes:
       - ./db:/data/db
+    restart: always
 
   app_client:
     image: carcinogen75/noteshub-client
     expose:
       - 80
+    restart: always
 
   app_server:
     image: carcinogen75/noteshub-server
@@ -34,6 +36,5 @@ services:
       - mongo
     links:
       - mongo
-    restart:
-      on-failure
+    restart: always
 
