@@ -19,14 +19,14 @@ services:
     restart: always
 
   app_client:
-    image: carcinogen75/noteshub-client
+    image: noteshub/client
     expose:
       - 80
     restart: always
 
   app_server:
-    image: carcinogen75/noteshub-server
-    env_file: .server.env
+    image: noteshub/server
+    env_file: server.env
     environment:
       MONGO_URL: mongodb://mongo:27017/noteshub
       PORT: 80
